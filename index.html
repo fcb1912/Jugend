@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Jugendabteilung – FC Badenia 1912 St. Ilgen e. V.</title>
+  <link rel="icon" href="bilder/logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { scroll-behavior: smooth; }
+    section { padding: 100px 0; }
+    .hero {
+      background: url('https://source.unsplash.com/1600x600/?youth,soccer') center/cover no-repeat;
+      color: white;
+      min-height: 300px;
+    }
+    .overlay {
+      background-color: rgba(0,0,0,0.6);
+      padding: 100px 0;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+    }
+    footer {
+      background: #222;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    /* Karussellbilder vollständig anzeigen mit weißem Hintergrund */
+    .carousel img {
+      max-height: 400px;
+      object-fit: contain;
+      width: 100%;
+      background-color: #fff;
+      display: block;
+    }
+
+    /* Karussell-Sektion ohne Abstand */
+    #bilderkarussell {
+      padding: 0;
+      margin: 0;
+    }
+
+    @media (max-width: 576px) {
+      h1.display-4 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.25rem; }
+      section { padding: 60px 0; }
+      nav a { margin: 0 8px; font-size: 0.9rem; }
+      .overlay { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+  <img src="bilder/logo.png" alt="FC Badenia Logo" style="height:40px; margin-right:10px;">
+  FC Badenia Jugend
+</a>
+
+
+      <div>
+        <a href="#philosophie">Philosophie</a>
+        <a href="#teams">Teams</a>
+        <a href="#training">Training</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero text-center">
+    <div class="overlay">
+      <div class="container">
+        <h1 class="display-4">Unsere Jugend – Unsere Zukunft</h1>
+        <p class="lead">Spaß am Spiel. Förderung mit Herz. Gemeinschaft erleben.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bilderkarussell -->
+  <section id="bilderkarussell">
+    <div id="carouselJugend" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="bilder/jugend1.jpg" class="d-block w-100" alt="Jugendtraining 1">
+        </div>
+        <div class="carousel-item">
+          <img src="bilder/jugend2.jpg" class="d-block w-100" alt="Jugendtraining 2">
+        </div>
+        <div class="carousel-item">
+          <img src="bilder/jugend3.jpg" class="d-block w-100" alt="Jugendtraining 3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselJugend" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselJugend" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Philosophie -->
+  <section id="philosophie" class="bg-light text-center">
+    <div class="container">
+      <h2>Unsere Philosophie</h2>
+      <p>Wir fördern Kinder und Jugendliche altersgerecht, mit qualifizierten Trainer:innen und viel Leidenschaft. Fairness, Teamgeist und Freude am Fußball stehen bei uns im Mittelpunkt.</p>
+    </div>
+  </section>
+
+  <!-- Teams -->
+  <section id="teams" class="bg-secondary text-white text-center">
+    <div class="container">
+      <h2>Unsere Jugendteams</h2>
+      <p>Von den Bambini bis zur U20 – wir bieten für jede Altersgruppe ein passendes Team:</p>
+      <ul class="list-unstyled">
+        <li>Bambini (ab 4 Jahren)</li>
+        <li>F- bis D-Jugend (U9–U13)</li>
+        <li>C- bis A-Jugend (U15–U20)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Training -->
+  <section id="training" class="bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Trainingszeiten & Trainer:innen</h2>
+
+      <div class="mb-4"><h3>A-Jugend (U20)</h3><p><strong>Trainer:</strong> Jürgen Schaede, Danie Yonan</p><ul><li>Mo. & Mi.: 18:30–20:00 – Waldstadion</li><li>Do.: 19:30–20:30 – Kurpfalzhalle</li></ul></div>
+      <div class="mb-4"><h3>B-Jugend (U17)</h3><p><strong>Trainer:</strong> Gabriel Phillipp, Cosmin Udovita</p><ul><li>Mo.: 17:30–19:00 – Waldstadion</li><li>Do.: 17:30–19:00 – Rauenberg</li></ul></div>
+      <div class="mb-4"><h3>C-Jugend (U15)</h3><p><strong>Trainer:</strong> Benjamin Winkler</p><ul><li>Di. & Do.: 17:15–18:45 – Waldstadion</li><li>Do.: 18:30–19:30 – Kurpfalzhalle</li></ul></div>
+      <div class="mb-4"><h3>D-Jugend (U13)</h3><p><strong>Trainer:</strong> Alexsandro Addis</p><ul><li>Mi. & Fr.: 17:15–18:45 – Waldstadion</li><li>Mi.: 17:30–19:00 – Kurpfalzhalle</li></ul></div>
+      <div class="mb-4"><h3>E1/E3-Jugend (U11)</h3><p><strong>Trainer:</strong> Giovanni Genovese, Alexander Schabunja, Maxim Stiben, Denis Strelzow</p><ul><li>Di. & Do.: 17:30–19:00 – Waldstadion</li><li>Do.: 17:00–18:30 – Kurpfalzhalle</li></ul></div>
+      <div class="mb-4"><h3>E2-Jugend (U10)</h3><p><strong>Trainer:</strong> Christian Wüst, Uwe Schneider, Claus Hammer</p><ul><li>Mo. & Mi.: 16:45–18:15 – Waldstadion</li><li>Mi.: 16:00–17:30 – Kurpfalzhalle</li></ul></div>
+      <div class="mb-4"><h3>F1-Jugend (U9)</h3><p><strong>Trainer:</strong> Jessica Ruck, Silas Koch, Monika Ruck, Heiko Ruck</p><ul><li>Mo. & Mi.: 16:45–18:00 – Waldstadion</li><li>Mi.: 16:00–17:30 – Kurpfalzhalle</li></ul></div>
+      <div class="mb-4"><h3>F2-Jugend (U9)</h3><p><strong>Trainer:</strong> Sven Uhlenhuth, Alexander Probst, Peter Jeremias</p><ul><li>Mo. & Mi.: 16:45–18:00 – Waldstadion</li><li>Mi.: 16:00–17:30 – Kurpfalzhalle</li></ul></div>
+      <div class="mb-4"><h3>Bambini (U7)</h3><p><strong>Trainer:</strong> Natascha Motta, Sascha Motta, Alexander Brecht, Kutsal Yolasar, Lara Leblebici, Frank Huber</p><ul><li>Mo. & Mi.: 16:30–17:30 – Waldstadion</li><li>Mo.: 16:00–17:30 – Kurpfalzhalle</li></ul></div>
+      <div class="mb-4"><h3>Mini-Bambini (U5)</h3><p><strong>Trainer:</strong> Lisa Schönig, Frank Huber</p><ul><li>Do.: 16:00–16:45 – Kurpfalzhalle oder Platz</li></ul></div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="bg-dark text-white text-center">
+    <div class="container">
+      <h2>Kontakt</h2>
+      <p>Jugendleitung: NN<br>
+         E-Mail: <a href="mailto:jugend@fc-badenia-stilgen.de" class="text-white">jugend@fc-badenia-stilgen.de</a><br>
+         Telefon: 06224 / 987654</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FC Badenia 1912 St. Ilgen e. V. – Jugendabteilung</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
