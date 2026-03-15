@@ -7,226 +7,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Fix: Verhindert, dass Anker-Links unter der Navbar verschwinden */
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px; 
+    :root {
+      --badenia-black: #000000;
+      --badenia-gray: #f8f9fa;
+      --badenia-border: #eeeeee;
     }
+
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #333; line-height: 1.6; background-color: #fff; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    /* Navbar */
+    .navbar { background-color: #fff !important; border-bottom: 1px solid var(--badenia-border); padding: 15px 0; }
+    .navbar-brand { font-weight: 800; color: #000 !important; font-size: 1.4rem; letter-spacing: -0.5px; }
+    .nav-link { color: #555 !important; font-weight: 500; margin-left: 15px; text-transform: uppercase; font-size: 0.85rem; }
+
+    /* Hero */
+    .hero-minimal { padding: 120px 0 50px 0; text-align: center; }
+    .hero-minimal h1 { font-size: 3.5rem; font-weight: 900; color: #000; margin-bottom: 15px; letter-spacing: -1px; }
+    .hero-minimal p { font-size: 1.2rem; color: #6c757d; max-width: 750px; margin: 0 auto; }
+
+    /* Galerie */
+    .carousel-container { max-width: 1100px; margin: 0 auto 50px auto; padding: 0 15px; }
+    .carousel-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      mask-image: radial-gradient(white, black);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .carousel-item { height: 50vh; min-height: 300px; text-align: center; }
+    .carousel-item img { height: 100%; width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; }
+
+    /* Sektionen */
     section { padding: 80px 0; }
-    .hero {
-      color: white;
-      min-height: 350px;
-    }
-    .overlay {
-      background-color: rgba(0,0,0,0.6);
-      padding: 100px 0;
-    }
-    nav a {
-      margin: 0 10px;
-      color: white;
-      text-decoration: none;
-      transition: opacity 0.3s;
-    }
-    nav a:hover { opacity: 0.7; color: #fff; }
-    
-    footer {
-      background: #222;
-      color: white;
-      padding: 30px 0;
-      text-align: center;
-    }
+    .section-title { font-weight: 800; margin-bottom: 50px; text-align: center; font-size: 2.2rem; }
 
-    /* Karussell-Styling */
-    .carousel img {
-      max-height: 450px;
-      object-fit: contain;
-      width: 100%;
-      background-color: #f8f9fa;
+    /* Tabs */
+    .nav-tabs-custom { border-bottom: none; justify-content: center; margin-bottom: 40px; gap: 10px; }
+    .nav-tabs-custom .nav-link {
+      border: 1px solid var(--badenia-border);
+      border-radius: 50px;
+      color: #666;
+      font-weight: 600;
+      padding: 10px 25px;
+      transition: all 0.3s;
     }
+    .nav-tabs-custom .nav-link.active { background-color: #000 !important; color: #fff !important; border-color: #000; }
 
-    #bilderkarussell { padding: 0; }
+    /* Trainingskarten */
+    .training-card { border: 1px solid var(--badenia-border); border-radius: 16px; background: #fff; height: 100%; overflow: hidden; transition: transform 0.3s; }
+    .training-card:hover { transform: translateY(-5px); }
+    .card-header { background: #000 !important; color: #fff !important; border: none; padding: 15px 20px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
+    .training-list { list-style: none; padding: 0; margin: 0; }
+    .training-list li { font-size: 0.85rem; padding: 8px 0; border-bottom: 1px solid #f8f8f8; color: #444; }
 
-    /* Card Styling für Trainingszeiten */
-    .training-card {
-      transition: transform 0.2s ease-in-out;
-      border: none;
-    }
-    .training-card:hover {
-      transform: translateY(-5px);
-    }
+    /* Kontakt Box */
+    .info-box { border-left: 4px solid #000; padding: 15px 25px; background: #fff; text-align: left; display: inline-block; }
 
-    @media (max-width: 576px) {
-      h1.display-4 { font-size: 1.8rem; }
-      nav a { margin: 0 5px; font-size: 0.8rem; }
-      section { padding: 50px 0; }
+    footer { background: #fff; color: #aaa; padding: 40px 0; border-top: 1px solid var(--badenia-border); text-align: center; }
+
+    @media (max-width: 768px) {
+      .hero-minimal h1 { font-size: 2.2rem; }
+      .carousel-item { height: 35vh; }
     }
   </style>
 </head>
 <body>
 
-  <nav class="navbar fixed-top navbar-dark bg-dark shadow">
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="bilder/logo.png" alt="FC Badenia Logo" style="height:40px; margin-right:10px;">
-        <span class="d-none d-sm-inline">FC Badenia Jugend</span>
+        <img src="bilder/logo.png" alt="Logo" style="height:40px; margin-right:12px;">
+        <span>BADENIA JUGEND</span>
       </a>
-      <div class="nav-links">
-        <a href="#philosophie">Philosophie</a>
-        <a href="#teams">Teams</a>
-        <a href="#training">Training</a>
-        <a href="#kontakt">Kontakt</a>
+      <div class="ms-auto d-none d-lg-block">
+        <a class="nav-link d-inline-block" href="#philosophie">Philosophie</a>
+        <a class="nav-link d-inline-block" href="#training">Teams & Training</a>
+        <a class="nav-link d-inline-block" href="#kontakt">Kontakt</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero text-center">
-    <div class="overlay">
-      <div class="container">
-        <h1 class="display-4 fw-bold">Unsere Jugend – Unsere Zukunft</h1>
-        <p class="lead">Spaß am Spiel. Förderung mit Herz. Gemeinschaft erleben.</p>
-      </div>
+  <header class="hero-minimal">
+    <div class="container">
+      <h1>Unsere Jugend. Unsere Zukunft.</h1>
+      <p>Seit 1912 stehen wir für Gemeinschaft und sportliche Förderung in St. Ilgen.</p>
     </div>
   </header>
 
-  <section id="bilderkarussell">
-    <div id="carouselJugend" class="carousel slide shadow-sm" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="bilder/jugend1.jpg" class="d-block w-100" alt="Jugendtraining 1">
-        </div>
-        <div class="carousel-item">
-          <img src="bilder/jugend2.jpg" class="d-block w-100" alt="Jugendtraining 2">
-        </div>
-        <div class="carousel-item">
-          <img src="bilder/jugend3.jpg" class="d-block w-100" alt="Jugendtraining 3">
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div id="jugendCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active"><img src="bilder/jugend1.jpg" alt="1"></div>
+          <div class="carousel-item"><img src="bilder/jugend2.jpg" alt="2"></div>
+          <div class="carousel-item"><img src="bilder/jugend3.jpg" alt="3"></div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselJugend" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselJugend" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
     </div>
-  </section>
+  </div>
 
-  <section id="philosophie" class="bg-white text-center">
-    <div class="container">
+  <section id="philosophie" style="background-color: var(--badenia-gray);">
+    <div class="container text-center">
+      <h2 class="section-title">Philosophie</h2>
       <div class="row justify-content-center">
         <div class="col-md-8">
-          <h2 class="mb-4">Unsere Philosophie</h2>
-          <p class="lead text-muted">Wir fördern Kinder und Jugendliche altersgerecht, mit qualifizierten Trainer:innen und viel Leidenschaft. Fairness, Teamgeist und Freude am Fußball stehen bei uns im Mittelpunkt.</p>
+          <p class="lead">Wir fördern Kinder und Jugendliche altersgerecht, mit qualifizierten Trainer:innen und viel Leidenschaft. Fairness, Teamgeist und Freude am Fußball stehen bei uns im Mittelpunkt.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="teams" class="bg-secondary text-white text-center">
+  <section id="training">
     <div class="container">
-      <h2 class="mb-4">Unsere Jugendteams</h2>
-      <div class="row g-4 mt-2">
-        <div class="col-md-4">
-          <div class="p-3 border border-light rounded">
-            <h4>Bambini</h4>
-            <p>Ab 4 Jahren</p>
-          </div>
+      <h2 class="section-title">Teams & Training</h2>
+      
+      <ul class="nav nav-tabs nav-tabs-custom" id="trainingTabs" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#bambini-p" type="button">Bambini (U5-U7)</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#grundlagen-p" type="button">Grundlagen (U8-U13)</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#aufbau-p" type="button">Aufbau (U15-U20)</button></li>
+      </ul>
+
+      <div class="tab-content pt-4">
+        <div class="tab-pane fade show active" id="bambini-p" role="tabpanel">
+          <div id="bambini-container" class="row g-4 justify-content-center"></div>
         </div>
-        <div class="col-md-4">
-          <div class="p-3 border border-light rounded">
-            <h4>F- bis D-Jugend</h4>
-            <p>U9 bis U13</p>
-          </div>
+        <div class="tab-pane fade" id="grundlagen-p" role="tabpanel">
+          <div id="grundlagen-container" class="row g-4 justify-content-center"></div>
         </div>
-        <div class="col-md-4">
-          <div class="p-3 border border-light rounded">
-            <h4>C- bis A-Jugend</h4>
-            <p>U15 bis U20</p>
-          </div>
+        <div class="tab-pane fade" id="aufbau-p" role="tabpanel">
+          <div id="aufbau-container" class="row g-4 justify-content-center"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="training" class="bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5">Trainingszeiten & Trainer:innen</h2>
-      <div id="training-container" class="row g-4">
-        <div class="text-center col-12">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Lade Trainingszeiten...</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontakt" class="bg-dark text-white text-center">
-    <div class="container">
-      <h2 class="mb-4">Kontakt</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <p class="mb-1"><strong>Jugendleitung:</strong> Sven Uhlenhuth</p>
-          <p class="mb-1">📧 <a href="mailto:jugend@fc-badenia-stilgen.de" class="text-white">jugendleiter@fc-badenia-stilgen.de</a></p>
-          <p>📞 0151 / 40121891</p>
-        </div>
+  <section id="kontakt" style="background-color: var(--badenia-gray);">
+    <div class="container text-center">
+      <h2 class="section-title">Kontakt</h2>
+      <div class="info-box shadow-sm">
+        <h5 class="fw-bold mb-3">Jugendleitung</h5>
+        <p class="mb-1"><strong>Sven Uhlenhuth</strong></p>
+        <p class="mb-1"><strong>E-Mail:</strong> <a href="mailto:jugendleiter@fc-badenia-stilgen.de" class="text-dark">jugendleiter@fc-badenia-stilgen.de</a></p>
+        <p class="mb-0"><strong>Telefon:</strong> 0151 40121891</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">
-      <p class="mb-0">&copy; 2026 FC Badenia 1912 St. Ilgen e. V. – Jugendabteilung</p>
-    </div>
+    <div class="container">&copy; 2026 FC BADENIA 1912 ST. ILGEN E. V.</div>
   </footer>
 
+  <script src="daten.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    // AJAX: Trainingsdaten aus JSON laden
-    async function loadTrainingData() {
-      const container = document.getElementById('training-container');
-      try {
-        const response = await fetch('trainingszeiten.json');
-        if (!response.ok) throw new Error('Netzwerk-Antwort war nicht ok');
-        
-        const data = await response.json();
-        container.innerHTML = ''; // Spinner entfernen
+    function render() {
+      const containers = {
+        bambini: document.getElementById('bambini-container'),
+        grundlagen: document.getElementById('grundlagen-container'),
+        aufbau: document.getElementById('aufbau-container')
+      };
 
-        data.forEach(item => {
-          const cardHtml = `
+      if (typeof trainingsDaten !== 'undefined' && Array.isArray(trainingsDaten)) {
+        trainingsDaten.forEach(item => {
+          const html = `
             <div class="col-md-6 col-lg-4">
-              <div class="card h-100 shadow-sm training-card">
-                <div class="card-header bg-primary text-white">
-                  <h3 class="h5 mb-0">${item.team}</h3>
-                </div>
-                <div class="card-body">
-                  <p class="card-text mb-3">
-                    <strong>Trainer:</strong><br>
-                    <span class="text-muted small">${item.trainer}</span>
-                  </p>
-                  <hr>
-                  <ul class="list-unstyled mb-0">
-                    ${item.zeiten.map(zeit => `
-                      <li class="mb-2 d-flex align-items-start">
-                        <span class="me-2">🕒</span>
-                        <span class="small">${zeit}</span>
-                      </li>
-                    `).join('')}
+              <div class="card training-card shadow-sm">
+                <div class="card-header">${item.team}</div>
+                <div class="card-body px-4 pb-4 pt-3">
+                  <p class="mb-2 small"><strong>Trainer:</strong><br><span class="text-muted">${item.trainer}</span></p>
+                  <ul class="training-list">
+                    ${item.zeiten.map(z => `<li>${z}</li>`).join('')}
                   </ul>
                 </div>
               </div>
-            </div>
-          `;
-          container.insertAdjacentHTML('beforeend', cardHtml);
+            </div>`;
+          if (containers[item.category]) containers[item.category].innerHTML += html;
         });
-      } catch (error) {
-        console.error('Fehler:', error);
-        container.innerHTML = '<p class="text-center text-danger">Trainingszeiten konnten nicht geladen werden. Bitte versuchen Sie es später erneut.</p>';
       }
     }
-
-    // Starten
-    document.addEventListener('DOMContentLoaded', loadTrainingData);
+    document.addEventListener('DOMContentLoaded', render);
   </script>
 </body>
 </html>
